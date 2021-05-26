@@ -14,3 +14,19 @@ nav li, a {
 nav li:hover {
     @apply border-b-2 border-black
 }
+
+header .fa-angle-right {
+    @apply text-xs
+}
+
+header li a {
+    @apply flex items-center justify-between w-full
+}
+
+.links li {
+    @apply flex 
+}
+
+.discount-text {
+    left: 13%;
+}
