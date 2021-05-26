@@ -30,3 +30,7 @@ header li a {
 .discount-text {
     left: 13%;
 }
+
+.nested-links, .links-nest {
+    transition: all ease 0.35s;
+}
