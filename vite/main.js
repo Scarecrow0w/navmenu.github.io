@@ -11,36 +11,45 @@ links.forEach((el) => {
     el.addEventListener('mouseenter', () => {
         discountMenu.classList.remove('flex')
         discountMenu.classList.add('hidden')
-        linksNest.classList.add('-translate-x-3')
         linksNest.classList.remove('flex')
         linksNest.classList.add('hidden')
+        linksNest.classList.add('-translate-x-3')
         if (submenu.classList.contains('flex')) {
-            fadeIn(linksNest)
+            setTimeout(() => {
+                fadeIn(linksNest)
+            }, 0);
         } else {
-            fadeIn(submenu)
-            linksNest.classList.remove('hidden')
-            linksNest.classList.add('flex')
+            setTimeout(() => {
+                fadeIn(submenu)
+                linksNest.classList.remove('hidden')
+                linksNest.classList.add('flex')
+            }, 0);
         }
         setTimeout(() => {
             linksNest.classList.remove('-translate-x-3')
-        }, 0)
+        }, 150)
     })
 })
 
 linkNest.forEach((el) => {
     el.addEventListener('mouseenter', () => {
-        nestedLinks.classList.add('-translate-x-3')
-        fadeIn(nestedLinks)
-        setTimeout(() => {
-            nestedLinks.classList.remove('-translate-x-3')
-        }, 0)
-    })
-
-    el.addEventListener('mouseleave', () => {
         nestedLinks.classList.remove('flex')
         nestedLinks.classList.add('hidden')
         nestedLinks.classList.add('-translate-x-3')
+        // nestedLinks.classList.add('-translate-x-3')
+        setTimeout(() => {
+            fadeIn(nestedLinks)
+            setTimeout(() => {
+                nestedLinks.classList.remove('-translate-x-3')                
+            }, 150);
+        }, 0)
     })
+
+    // el.addEventListener('mouseleave', () => {
+    //     nestedLinks.classList.remove('flex')
+    //     nestedLinks.classList.add('hidden')
+    //     nestedLinks.classList.add('-translate-x-3')
+    // })
 })
 
 
