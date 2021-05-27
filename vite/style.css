@@ -11,8 +11,12 @@ nav li, a {
     @apply hover:text-rose
 }
 
-nav li:hover {
-    @apply border-b-2 border-black
+nav li a, nav li span {
+    @apply border-b-2 border-transparent h-full pb-3
+}
+
+nav li a:hover, nav li span:hover {
+    @apply border-black 
 }
 
 header .fa-angle-right {
@@ -31,6 +35,6 @@ header li a {
     left: 13%;
 }
 
-.nested-links, .links-nest {
+.nested-links, .links-nest, .product-image, .product-description {
     transition: all ease 0.35s;
 }
