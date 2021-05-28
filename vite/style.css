@@ -35,6 +35,10 @@ header li a {
     left: 13%;
 }
 
-.nested-links, .links-nest, .product-image, .product-description {
+.nested-links, .links-nest, .product-image, .product-description, .discount-image {
     transition: all ease 0.35s;
+}
+
+.megamenu a {
+    @apply py-1
 }
