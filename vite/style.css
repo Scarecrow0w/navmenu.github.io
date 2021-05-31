@@ -12,7 +12,7 @@ nav li, a {
 }
 
 nav li a, nav li span {
-    @apply border-b-2 border-transparent h-full pb-3
+    @apply border-b-2 h-full pb-3 flex border-transparent
 }
 
 nav li a:hover, nav li span:hover {
@@ -39,6 +39,91 @@ header li a {
     transition: all ease 0.35s;
 }
 
+.discount-image {
+    display: flex;
+}
+
+.megamenu, .submenu {
+    display: none;
+} 
+
 .megamenu a {
-    @apply py-1
+    @apply py-1 -translate-y-10
+}
+
+.slideUp {
+    animation: slideUp 0.35s
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+        display: flex;
+    }
+    to {
+        transform: translateY(-2.5rem);
+        opacity: 0;
+        display: none;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.slideRight-12 {
+    animation: slideRight-12 0.75s;
+}
+
+@keyframes slideRight-12 {
+    from {
+        transform: translateX(-0.75rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.megamenu-slide {
+    animation: megamenu 1s;
+    position: relative;
+    
+}
+
+@keyframes megamenu {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.animation-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animation-delay-350 {
+    animation-delay: 0.35s;
+}
+
+.animation-delay-500 {
+    animation-delay: 0.5s;
+}
+
+.animation-delay-1000 {
+    animation-delay: 1s;
 }
