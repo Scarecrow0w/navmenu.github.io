@@ -52,7 +52,7 @@ header li a {
 }
 
 .slideUp {
-    animation: slideUp 0.35s
+    animation: slideUp 0.25s
 }
 
 @keyframes slideUp {
@@ -97,8 +97,23 @@ header li a {
     }
 }
 
+.slideRight-24 {
+    animation: slideRight-24 0.75s;
+}
+
+@keyframes slideRight-24 {
+    from {
+        transform: translateX(-1.5rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 .megamenu-slide {
-    animation: megamenu 1s;
+    animation: megamenu 0.5s;
     position: relative;
     
 }
@@ -109,6 +124,21 @@ header li a {
     }
     to {
         transform: translateY(0);
+    }
+}
+
+.megamenu-slide-inside {
+    animation: megamenu-inside 0.5s;
+    position: relative;
+    
+}
+
+@keyframes megamenu-inside {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
     }
 }
 

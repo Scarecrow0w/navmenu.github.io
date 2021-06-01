@@ -12,21 +12,15 @@ linksNest = document.querySelector('.links-nest'),
 linkNest = document.querySelectorAll('.link-nest'),
 nestedLinks = document.querySelector('.nested-links'),
 productImg = document.querySelectorAll('.product-image'),
-productDescription = document.querySelectorAll('.product-description'),
-products = document.querySelector('.products');
+productDescription = document.querySelectorAll('.product-description');
 
 catalogLink.addEventListener('mouseenter', () => {
     header.classList.add('fixed')
     discountMenu.classList.remove('slideUp')
-    // discountMenu.classList.remove('slideup')
-    // discountMenu.style.transform = 'translateY(0)'
     show(megamenu)
     hide(submenu)
     discountMenu.style.display = 'flex'
     megamenu.classList.add('megamenu-slide')
-    // hide(submenu)
-    // show(discountMenu)
-    // discountMenu.style.opacity = 1
     
 })
 
@@ -36,57 +30,42 @@ megamenu.onmouseleave = () => mouseenterMegamenu = false
 nav.addEventListener('mouseleave', () => {
     setTimeout(() => {
         if (!mouseenterMegamenu) {
-            hide(megamenu)
-            header.classList.remove('fixed')
+            megamenu.classList.add('megamenu-slide-inside')
+            setTimeout(() => {
+                megamenu.classList.remove('megamenu-slide-inside')
+                hide(megamenu)
+                header.classList.remove('fixed')
+            }, 490);
         }
     }, 100);
 })
 
 links.forEach((el) => {
-    el.addEventListener('mouseenter', () => {
-       
-        
-//         submenu.classList.remove('fadeIn')
-//         linksNest.classList.remove('fadeIn')
-//         hide(nestedLinks)
-//         // fadeOut(discountMenu)
-
-//         setTimeout(() => {
-//             hide(linksNest)
-//             linksNest.classList.add('slideRight-12')
-//             hide(products)
-//             productImg.forEach((item) => item.classList.add('-translate-x-10'))
-//             productDescription.forEach((item) => item.classList.add('-translate-x-16'))
-
-
-        if (submenu.classList.contains('flex')) {
-            // show(linksNest)
-            // linksNest.classList.add('fadeIn')
+    el.addEventListener('mouseenter', () => { 
+        if (submenu.style.display == 'flex') {
+            linksNest.classList.remove('slideRight-12')
+            productImg.forEach((img) => img.classList.remove('slideRight-12'))
+            productDescription.forEach((des) => des.classList.remove('slideRight-24'))
+            hide(nestedLinks)
+            setTimeout(() => {
+                linksNest.classList.add('slideRight-12')
+                productImg.forEach((img) => img.classList.add('slideRight-12'))
+                productDescription.forEach((des) => des.classList.add('slideRight-24'))
+            }, 0)
         } else {
             discountMenu.classList.add('slideUp')
             linksNest.classList.remove('slideRight-12')
+            productImg.forEach((img) => img.classList.remove('slideRight-12'))
+            productDescription.forEach((des) => des.classList.remove('slideRight-24'))
             hide(nestedLinks)
             setTimeout(() => {
                 hide(discountMenu)
                 show(submenu)
                 linksNest.classList.add('slideRight-12')
-            }, 300);
-
-            // show(submenu)
-            // submenu.classList.add('fadeIn')
-            // show(linksNest)
-        }
-
-        
-//             setTimeout(() => {
-//                 linksNest.classList.remove('slideRight-12')
-//                 fadeIn(products)
-//                 setTimeout(() => {
-//                     productImg.forEach((item) => item.classList.remove('-translate-x-10'))
-//                     productDescription.forEach((item) => item.classList.remove('-translate-x-16'))
-//                 }, 50);
-//             }, 200)
-//         }, 200)
+                productImg.forEach((img) => img.classList.add('slideRight-12'))
+                productDescription.forEach((des) => des.classList.add('slideRight-24'))
+            }, 225)            
+        }        
     })
 })
 
@@ -99,54 +78,8 @@ linkNest.forEach((el) => {
             show(nestedLinks)
             nestedLinks.classList.add('slideRight-12')
         }, 100);
-//         // nestedLinks.classList.remove('fadeIn')
-//         // nestedLinks.classList.remove('slideRight-12')
-//         // nestedLinks.style.opacity = 0
-//         hide(nestedLinks)
-//         // setTimeout(() => {
-//             show(nestedLinks)
-//             nestedLinks.classList.add('slideRight-12')
-//             nestedLinks.classList.add('fadeIn')
-//         // }, 1000)
-        
-//         setTimeout(() => {
-//             nestedLinks.classList.remove('-translate-x-3')                
-//         }, 200)
     })
 })
-
-
-// // FadeIn effect
-// function fadeIn(el) {
-//     let op = 0
-//     el.style.opacity = op
-//     el.classList.remove('hidden')
-//     el.classList.add('flex')
-    
-//     let timer = setInterval(function () {
-//       if (op >= 1) clearInterval(timer)      
-//       el.style.opacity = op
-//       op = op + 0.1
-//     }, 20);
-//   }
-
-// // FadeOut effect
-// function fadeOut(el) {
-//     let op = 10;
-
-//     let st = setInterval(function(){
-//         op--;
-//         el.style.opacity = op / 10 
-
-//         if (op <= 0) {
-//             clearInterval(st)
-//             setTimeout(() => {
-//                 el.classList.remove('flex')
-//                 el.classList.add('hidden')  
-//             }, 100)
-//         }  
-//     }, 10)
-// }
 
 // show element (flex)
 function show(el) {
